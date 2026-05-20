@@ -1,83 +1,87 @@
-# SOLO Skill: Literature Deep Analysis
+# SOLO 技能：文献深度解析
 
-A reusable SOLO skill for deep paragraph-by-paragraph analysis of scientific literature, with bilingual (English-Chinese) comparison, figure/subfigure interpretation, and structured reporting.
+一个可复用的 SOLO 技能，用于科学文献的逐段对照深度解析，支持中英双语对照、图表深度解读、结构化报告生成。
 
-## Features
+## 功能特点
 
-- **Paragraph-by-paragraph comparison**: Original text + Chinese translation + terminology glossary
-- **Deep figure analysis**: Every subfigure (a, b, c...) analyzed with experimental content and result interpretation
-- **Method summary**: Structured tables for preparation methods, animal models, and detection techniques
-- **Conclusion & significance**: Key findings, clinical translation potential, limitations
-- **Terminology glossary**: Core terms with bilingual definitions
-- **Output**: Professional Word document (.docx)
+- **逐段对照解析**：英文原文 + 中文翻译 + 术语解释，三栏对照
+- **图表深度解读**：每张组图的每个小图（a, b, c...）逐一分析，包含实验内容和结果解读
+- **方法总结**：制备方法、动物模型、检测技术的结构化汇总表
+- **结论与意义**：主要发现、临床转化潜力、研究局限性
+- **术语表**：核心术语中英对照及定义
+- **输出格式**：专业 Word 文档（.docx）
 
-## Repository Structure
+## 仓库结构
 
 ```
 solo-skill-literature-analysis/
-├── README.md                          # This file
-├── skill.md                           # Core skill prompt (SOLO skill format)
-├── config.json                        # Skill metadata
+├── README.md                          # 本文件
+├── skill.md                           # 核心技能提示词
+├── config.json                        # 技能元数据
 ├── examples/
-│   └── sample-output.md               # Example output structure
+│   └── sample-output.md               # 输出示例结构
 └── variants/
-    ├── quick-analysis.md              # Quick analysis variant (abstract + figures only)
-    ├── full-analysis.md               # Full analysis variant (all sections)
-    └── batch-analysis.md              # Batch analysis variant (multiple papers)
+    ├── quick-analysis.md              # 快速版（仅摘要+图表）
+    ├── full-analysis.md               # 完整版（全部章节）
+    └── batch-analysis.md              # 批量版（多篇文献）
 ```
 
-## How to Use
+## 使用方法
 
-### Option 1: Direct Prompt Copy
+### 方式一：直接复制提示词（推荐）
 
-1. Open `skill.md`
-2. Copy the entire content under `## Skill Prompt`
-3. Upload your PDF literature to SOLO
-4. Paste the prompt and send
+1. 打开 `skill.md` 文件
+2. 复制「技能提示词」部分的全部内容
+3. 上传 PDF 文献到 SOLO
+4. 粘贴提示词，发送
 
-### Option 2: As a SOLO User Skill
+### 方式二：选择不同变体
 
-If SOLO supports custom user skills:
+| 变体 | 文件 | 说明 | 耗时 |
+|------|------|------|------|
+| 快速版 | `variants/quick-analysis.md` | 只解析摘要+图表，快速了解文献 | ~5分钟 |
+| 完整版 | `variants/full-analysis.md` | 全部章节深度解析 | ~15分钟 |
+| 批量版 | `variants/batch-analysis.md` | 多篇文献合并为一个报告 | 视数量 |
 
-1. Place `skill.md` in your SOLO skills directory
-2. Invoke with: "Use the literature-analysis skill to analyze this paper"
-3. SOLO will automatically load the skill prompt
+### 方式三：自定义调整
 
-### Option 3: GitHub Integration
+在提示词末尾追加配置选项：
 
-1. Push this repository to your GitHub account
-2. Reference the raw URL of `skill.md` in your SOLO configuration
-3. SOLO can fetch and use the skill prompt remotely
+```
+ANALYSIS_SCOPE: abstract+results+discussion   # 只解析这三个部分
+FIGURE_DEPTH: brief                           # 图表简要解析（每图1-2句）
+TRANSLATION_LANG: chinese                     # 翻译语言（默认中文）
+```
 
-## Customization
+### 方式四：分享给他人
 
-### Analysis Scope
+直接发送仓库链接：
+```
+https://github.com/nbxhh0815-dotcom/solo-skill-literature-analysis
+```
 
-Edit the prompt in `skill.md` to adjust:
+## 输出示例
 
-- **Sections to analyze**: Add/remove sections (Abstract, Introduction, Methods, Results, Discussion)
-- **Figure depth**: Brief (1-2 sentences) vs. detailed (full experimental description)
-- **Language**: Change translation language (default: Chinese)
-- **Additional sections**: Add innovation scoring, relevance analysis, etc.
+解析报告包含以下章节：
 
-### Variants
+1. **文献概述**：研究背景、目的、创新点
+2. **摘要逐段对照**：原文 + 翻译 + 术语表
+3. **引言逐段对照**：原文 + 翻译 + 术语表
+4. **图表深度解析**：每张图每个小图的详细分析
+5. **方法总结**：制备方法、动物模型、检测方法汇总表
+6. **结论与意义**：主要结论、转化意义、局限性
+7. **术语表**：核心术语中英对照
 
-| Variant | File | Description |
-|---------|------|-------------|
-| Quick | `variants/quick-analysis.md` | Abstract + key figures only, ~5 min per paper |
-| Full | `variants/full-analysis.md` | All sections, ~15 min per paper |
-| Batch | `variants/batch-analysis.md` | Multiple papers in one report |
+## 系统要求
 
-## Requirements
+- SOLO（支持 PDF 读取和 Word 文档生成）
+- PDF 文献文件（建议英文文献）
+- 输出格式：.docx
 
-- SOLO with PDF reading capability
-- PDF literature file (English recommended)
-- Output: .docx format
+## 许可证
 
-## License
+MIT License - 可自由使用、修改和分发。
 
-MIT License - Free to use, modify, and distribute.
+## 作者
 
-## Author
-
-Created for scientific literature analysis workflow.
+为科研文献分析工作流创建。

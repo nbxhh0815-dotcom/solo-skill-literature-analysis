@@ -1,81 +1,81 @@
-# Sample Output Structure
+# 输出示例结构
 
-This document shows the expected structure of a full analysis report.
+本文档展示完整分析报告的预期结构。
 
 ---
 
-## Document Structure
+## 文档结构
 
 ```
-Cover Page
-├── Title: 文献深度解析报告
-├── Paper Title (bilingual)
-├── Journal, Date, Authors, Institution
-└── [Page Break]
+封面页
+├── 标题：文献深度解析报告
+├── 论文标题（中英双语）
+├── 期刊、日期、作者、机构
+└── [分页]
 
-Section 1: 文献概述
+第一章：文献概述
 ├── 1.1 研究背景
 ├── 1.2 研究目的
 └── 1.3 核心创新点
 
-Section 2: 摘要逐段对照解析
+第二章：摘要逐段对照解析
 ├── H3: 段落1：研究背景与问题
-│   └── [3-column table: Original | Translation | Terminology]
+│   └── [三栏对照表：原文 | 翻译 | 术语]
 ├── H3: 段落2：研究方法
-│   └── [3-column table]
+│   └── [三栏对照表]
 ├── H3: 段落3：主要结果
-│   └── [3-column table]
+│   └── [三栏对照表]
 └── H3: 段落4：研究意义
-    └── [3-column table]
+    └── [三栏对照表]
 
-Section 3: 引言逐段对照解析
+第三章：引言逐段对照解析
 ├── H3: 段落1：...
-│   └── [3-column table]
+│   └── [三栏对照表]
 └── ...
 
-Section 4: 图表深度解析
-├── H2: 4.1 Figure 1: [Figure Title]
-│   ├── [Subfigure analysis table: Label | Content | Result]
-│   ├── [Subfigure analysis table]
+第四章：图表深度解析
+├── H2: 4.1 Figure 1: [图标题]
+│   ├── [小图解析表：编号 | 实验内容 | 结果解读]
+│   ├── [小图解析表]
 │   ├── ...
-│   └── Key Conclusion (red text)
-├── H2: 4.2 Figure 2: [Figure Title]
-│   ├── [Subfigure analysis table]
+│   └── 关键结论（红色文字）
+├── H2: 4.2 Figure 2: [图标题]
+│   ├── [小图解析表]
 │   ├── ...
-│   └── Key Conclusion (red text)
+│   └── 关键结论（红色文字）
 └── ...
 
-Section 5: 研究方法总结
+第五章：研究方法总结
 ├── 5.1 纳米材料/药物制备
 ├── 5.2 动物模型
-└── 5.3 主要检测方法 [Summary Table]
+└── 5.3 主要检测方法 [汇总表]
 
-Section 6: 研究结论与意义
+第六章：研究结论与意义
 ├── 6.1 主要结论
 ├── 6.2 临床转化意义
 └── 6.3 研究局限与展望
 
-Section 7: 核心术语表
-└── [Terminology table: English | Chinese | Definition]
+第七章：核心术语表
+└── [术语表：英文 | 中文 | 定义]
 
-Footer: — 文献解析报告完 —
+页脚：— 文献解析报告完 —
 ```
 
 ---
 
-## Table Examples
+## 表格示例
 
-### Paragraph Comparison Table
+### 段落对照表
 
-| 原文 Original | 翻译 Translation |
-|---------------|-----------------|
+| 原文 | 翻译 |
+|------|------|
 | Rheumatoid arthritis (RA) is a chronic autoimmune disorder... | 类风湿性关节炎（RA）是一种慢性自身免疫性疾病... |
 
 **术语解释：**
-- Rheumatoid arthritis (RA): 类风湿性关节炎，以对称性滑膜炎为特征的慢性自身免疫病
-- Autoimmune disorder: 自身免疫性疾病，免疫系统攻击自身组织的疾病
+- Rheumatoid arthritis (RA)：类风湿性关节炎，以对称性滑膜炎为特征的慢性自身免疫病
+- Autoimmune disorder：自身免疫性疾病，免疫系统攻击自身组织的疾病
 
-### Figure Analysis Table
+### 图表解析表
 
 | 小图 | 实验内容 | 结果解读 |
 |------|---------|---------|
@@ -84,14 +84,14 @@ Footer: — 文献解析报告完 —
 
 **关键结论：** CMLT纳米疫苗具有理想的粒径和均一性。
 
-### Methods Summary Table
+### 方法汇总表
 
 | 检测类型 | 方法 | 检测指标 |
 |---------|------|---------|
 | 理化表征 | DLS、TEM | 粒径、电位、形态 |
 | 蛋白表达 | Western blot、ELISA | TSP-1、TGF-β1 |
 
-### Terminology Table
+### 术语表
 
 | 英文术语 | 中文翻译 | 定义 |
 |---------|---------|------|

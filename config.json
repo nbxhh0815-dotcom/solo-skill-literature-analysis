@@ -1,17 +1,17 @@
 {
   "name": "literature-analysis",
   "version": "1.0.0",
-  "description": "Deep paragraph-by-paragraph analysis of scientific literature with bilingual comparison and figure interpretation",
+  "description": "科学文献逐段对照深度解析，支持中英双语对照和图表解读",
   "author": "User Custom Skill",
   "license": "MIT",
   "trigger_keywords": [
-    "literature analysis",
-    "paper analysis",
-    "deep reading",
     "文献解析",
     "文献分析",
     "论文解析",
-    "逐段对照"
+    "逐段对照",
+    "深度阅读",
+    "literature analysis",
+    "paper analysis"
   ],
   "supported_formats": ["pdf"],
   "output_format": "docx",
@@ -22,7 +22,7 @@
     "additional_sections": [],
     "batch_mode": false
   },
-  "estimated_time_per_paper": "10-15 minutes",
+  "estimated_time_per_paper": "10-15分钟",
   "dependencies": {
     "required_skills": ["pdf", "docx"],
     "optional_skills": []

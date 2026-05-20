@@ -1,8 +1,8 @@
-# Batch Analysis Variant
+# 批量版变体
 
-> Analyze multiple papers in one session, each as an independent chapter.
+> 多篇文献合并分析，每篇作为独立章节。
 
-## Prompt
+## 提示词
 
 我上传了多篇PDF文献，请依次对每篇进行「逐段对照深度解析」，最终合并为一个Word文档报告。
 

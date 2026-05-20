@@ -1,175 +1,175 @@
-# Literature Deep Analysis Skill
+# 文献深度解析技能
 
-## Metadata
-- **Name**: literature-analysis
-- **Version**: 1.0.0
-- **Description**: Deep paragraph-by-paragraph analysis of scientific literature with bilingual comparison and figure interpretation
-- **Trigger**: User uploads a PDF and requests literature analysis / deep reading / paper analysis
-- **Language**: Output in Chinese (configurable)
-
----
-
-## Skill Prompt
-
-You are an expert scientific literature analyst. When a user provides a PDF research paper, perform a comprehensive deep analysis following the structured workflow below. Generate a professional Word document (.docx) as the final output.
-
-### Workflow
-
-#### Step 1: Full Text Extraction
-
-Use the PDF skill to extract all text content from the uploaded paper:
-- Extract page by page using `extract_pages.py`
-- Identify the document structure: Title, Authors, Abstract, Introduction, Methods, Results, Discussion, Conclusion, References
-- Note all Figure and Scheme numbers and their captions
-
-#### Step 2: Paragraph-by-Paragraph Comparative Analysis
-
-For the **Abstract** and **Introduction** sections, create a three-column comparison table for EACH paragraph:
-
-| Column | Content |
-|--------|---------|
-| Original Text | The exact English text from the paper |
-| Translation | Accurate Chinese translation with consistent terminology |
-| Terminology | Extract professional terms from the paragraph, provide bilingual definition |
-
-**Terminology format**: `• English Term (中文翻译): Brief definition in Chinese`
-
-For the **Results** and **Discussion** sections, analyze key paragraphs that contain:
-- Major findings
-- Mechanistic explanations
-- Statistical results
-- Comparative statements
-
-#### Step 3: Deep Figure Analysis
-
-For EVERY Figure and Scheme in the paper, create a detailed analysis table for EACH subfigure (a, b, c, d...):
-
-| Column | Content |
-|--------|---------|
-| Subfigure | Label (e.g., "a", "b", "c") |
-| Experimental Content | What experiment was performed, what method was used, what was measured |
-| Result Interpretation | What the data shows, differences from controls, statistical significance |
-
-After analyzing all subfigures of a Figure, add a **Key Conclusion** paragraph summarizing the core finding of that Figure.
-
-**Subfigure analysis guidelines**:
-- Describe the experimental setup and methodology
-- Quote specific quantitative data (percentages, fold changes, p-values)
-- Compare with control groups explicitly
-- Explain the biological/physical significance
-- Note any surprising or unexpected findings
-
-#### Step 4: Methods Summary
-
-Create structured summary tables:
-
-**Table 1: Material/Drug Preparation**
-| Parameter | Details |
-|-----------|---------|
-| Components | List all components with ratios |
-| Method | Preparation technique |
-| Key Parameters | Size, PDI, encapsulation efficiency, etc. |
-
-**Table 2: Animal Models**
-| Parameter | Details |
-|-----------|---------|
-| Species/Strain | e.g., DBA/1 mice, C57BL/6 |
-| Model | e.g., CIA, tumor xenograft |
-| Induction | How the model was established |
-| Grouping | Treatment groups and n numbers |
-| Dosing | Dose, route, frequency, duration |
-
-**Table 3: Detection Methods**
-| Detection Type | Method | Measured Indicators |
-|----------------|--------|---------------------|
-| e.g., Physicochemical | DLS, TEM | Size, morphology |
-| e.g., Protein expression | Western blot, ELISA | Target protein levels |
-| e.g., Cell phenotype | Flow cytometry | Cell subset proportions |
-| e.g., Histopathology | H&E staining | Tissue morphology |
-| e.g., Imaging | Micro-CT, IVIS | In vivo distribution |
-
-#### Step 5: Conclusions and Significance
-
-**5.1 Key Conclusions** (max 5 points)
-- Each conclusion should be specific and data-supported
-- Include quantitative evidence where available
-
-**5.2 Clinical Translation Significance**
-- Advantages over existing approaches
-- Potential impact on the field
-- Feasibility of translation
-
-**5.3 Limitations and Future Directions**
-- Acknowledged limitations of the study
-- Suggested improvements
-- Future research directions
-
-#### Step 6: Core Terminology Glossary
-
-Create a table of 10-15 core terms:
-
-| English Term | Chinese Translation | Definition |
-|--------------|-------------------|------------|
-| ... | ... | Brief definition in Chinese |
-
-### Output Format Requirements
-
-Generate a .docx file with the following specifications:
-
-1. **Cover Page**: Paper title (bilingual), journal name, publication date, authors, institution
-2. **Section Headings**: Use H1 for major sections, H2 for subsections, H3 for individual paragraphs/figures
-3. **Tables**:
-   - Blue header (#2B6CB0) with white text
-   - Alternating row colors (light gray / white)
-   - Proper cell padding
-4. **Fonts**:
-   - Chinese: Microsoft YaHei (微软雅黑)
-   - English: Arial
-5. **Key conclusions**: Highlighted in red (#C53030)
-6. **Page numbers**: Centered in footer
-7. **Header**: Paper title abbreviation on the right
-
-### Quality Standards
-
-- Translations must be scientifically accurate and use standard Chinese terminology
-- All quantitative data must be quoted exactly from the original text
-- Statistical significance markers (*, **, ***, ****) must be preserved
-- Figure analysis must cover EVERY subfigure without omission
-- Terminology must be consistent throughout the document
+## 元数据
+- **名称**：literature-analysis
+- **版本**：1.0.0
+- **描述**：科学文献逐段对照深度解析，支持中英双语对照和图表解读
+- **触发词**：用户上传 PDF 并请求文献解析 / 深度阅读 / 论文分析
+- **输出语言**：中文（可配置）
 
 ---
 
-## Configuration Options
+## 技能提示词
 
-The following options can be appended to the prompt to customize behavior:
+你是一位专业的科学文献分析师。当用户提供一篇 PDF 研究论文时，请按照以下结构化流程进行全面深度分析，最终生成专业的 Word 文档（.docx）。
 
-### Scope Control
+### 工作流程
+
+#### 第一步：全文提取
+
+使用 PDF 技能提取上传论文的全部文本内容：
+- 使用 `extract_pages.py` 逐页提取
+- 识别文档结构：标题、作者、摘要、引言、方法、结果、讨论、结论、参考文献
+- 记录所有 Figure 和 Scheme 的编号及图注
+
+#### 第二步：逐段对照解析
+
+对**摘要**和**引言**部分，为每个段落创建三栏对照表：
+
+| 栏位 | 内容 |
+|------|------|
+| 原文 | 论文中的英文原文 |
+| 翻译 | 准确的中文翻译，术语统一 |
+| 术语解释 | 提取该段落中的专业术语，提供中英对照和简明定义 |
+
+**术语格式**：`• 英文术语（中文翻译）：简明中文定义`
+
+对**结果**和**讨论**部分，分析包含以下内容的关键段落：
+- 主要发现
+- 机制解释
+- 统计结果
+- 比较性陈述
+
+#### 第三步：图表深度解析
+
+对论文中的**每张 Figure 和 Scheme**，为**每个小图**（a, b, c, d...）创建详细解析表：
+
+| 栏位 | 内容 |
+|------|------|
+| 小图编号 | 标签（如 "a", "b", "c"） |
+| 实验内容 | 做了什么实验、用了什么方法、检测了什么指标 |
+| 结果解读 | 数据说明了什么、与对照组的差异、统计学意义 |
+
+分析完一张图的所有小图后，添加一段**关键结论**，总结该图的核心发现。
+
+**小图解析指南**：
+- 描述实验设置和方法
+- 引用具体定量数据（百分比、倍数变化、p值）
+- 明确与对照组的比较
+- 解释生物学/物理学意义
+- 注明任何意外或令人惊讶的发现
+
+#### 第四步：方法总结
+
+创建结构化汇总表：
+
+**表1：材料/药物制备**
+| 参数 | 详情 |
+|------|------|
+| 组分 | 列出所有组分及比例 |
+| 方法 | 制备技术 |
+| 关键参数 | 粒径、PDI、包封率等 |
+
+**表2：动物模型**
+| 参数 | 详情 |
+|------|------|
+| 物种/品系 | 如 DBA/1小鼠、C57BL/6 |
+| 模型 | 如 CIA、肿瘤移植 |
+| 诱导方式 | 如何建立模型 |
+| 分组 | 治疗组及样本量 |
+| 给药 | 剂量、途径、频率、时长 |
+
+**表3：检测方法**
+| 检测类型 | 方法 | 检测指标 |
+|----------|------|----------|
+| 如：理化表征 | DLS、TEM | 粒径、形态 |
+| 如：蛋白表达 | Western blot、ELISA | 目标蛋白水平 |
+| 如：细胞表型 | 流式细胞术 | 细胞亚群比例 |
+| 如：组织病理 | H&E染色 | 组织形态 |
+| 如：影像学 | Micro-CT、IVIS | 体内分布 |
+
+#### 第五步：结论与意义
+
+**5.1 主要结论**（最多5条）
+- 每条结论应具体且有数据支撑
+- 尽可能包含定量证据
+
+**5.2 临床转化意义**
+- 相比现有方法的优势
+- 对领域的潜在影响
+- 转化的可行性
+
+**5.3 局限性与未来方向**
+- 研究的局限性
+- 改进建议
+- 未来研究方向
+
+#### 第六步：核心术语表
+
+创建10-15个核心术语的表格：
+
+| 英文术语 | 中文翻译 | 定义 |
+|----------|----------|------|
+| ... | ... | 简明中文定义 |
+
+### 输出格式要求
+
+生成 .docx 文件，具体要求如下：
+
+1. **封面页**：论文标题（中英双语）、期刊名称、发表日期、作者、机构
+2. **章节标题**：H1 用于主要章节，H2 用于子章节，H3 用于单个段落/图表
+3. **表格**：
+   - 蓝色表头（#2B6CB0），白色文字
+   - 交替行颜色（浅灰/白色）
+   - 适当的单元格内边距
+4. **字体**：
+   - 中文：微软雅黑
+   - 英文：Arial
+5. **关键结论**：用红色（#C53030）标注
+6. **页码**：页脚居中
+7. **页眉**：论文标题缩写，右对齐
+
+### 质量标准
+
+- 翻译必须科学准确，使用标准中文术语
+- 所有定量数据必须准确引用原文
+- 统计显著性标记（*, **, ***, ****）必须保留
+- 图表解析必须覆盖每个小图，不得遗漏
+- 术语在全文中必须保持一致
+
+---
+
+## 配置选项
+
+可在提示词末尾追加以下选项来自定义行为：
+
+### 解析范围控制
 ```
-ANALYSIS_SCOPE: abstract+results+discussion  (skip introduction and methods)
-ANALYSIS_SCOPE: all  (default: analyze all sections)
+ANALYSIS_SCOPE: abstract+results+discussion  （跳过引言和方法）
+ANALYSIS_SCOPE: all  （默认：解析全部章节）
 ```
 
-### Figure Depth
+### 图表解析深度
 ```
-FIGURE_DEPTH: brief  (1-2 sentence summary per subfigure)
-FIGURE_DEPTH: detailed  (default: full experimental description + interpretation)
-```
-
-### Translation Language
-```
-TRANSLATION_LANG: chinese  (default)
-TRANSLATION_LANG: english  (output translation in English)
-TRANSLATION_LANG: bilingual  (both Chinese and English)
+FIGURE_DEPTH: brief  （每个小图1-2句话简要总结）
+FIGURE_DEPTH: detailed  （默认：完整实验描述+结果解读）
 ```
 
-### Additional Sections
+### 翻译语言
 ```
-ADDITIONAL_SECTIONS: innovation_score  (rate innovation 1-10 with justification)
-ADDITIONAL_SECTIONS: methodology_critique  (critique experimental design)
-ADDITIONAL_SECTIONS: relevance_analysis  (analyze relevance to user's research field)
+TRANSLATION_LANG: chinese  （默认）
+TRANSLATION_LANG: english  （输出英文翻译）
+TRANSLATION_LANG: bilingual  （中英双语）
 ```
 
-### Batch Mode
+### 附加章节
 ```
-BATCH_MODE: true  (analyze multiple uploaded papers, each as independent chapter)
+ADDITIONAL_SECTIONS: innovation_score  （创新性评分1-10及理由）
+ADDITIONAL_SECTIONS: methodology_critique  （实验设计评价）
+ADDITIONAL_SECTIONS: relevance_analysis  （分析与用户研究领域的关联）
+```
+
+### 批量模式
+```
+BATCH_MODE: true  （分析多篇上传的论文，每篇作为独立章节）
 ```

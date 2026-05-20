@@ -1,8 +1,8 @@
-# Quick Analysis Variant
+# 快速版变体
 
-> Fast analysis focusing on Abstract + Key Figures only. ~5 min per paper.
+> 快速分析，仅解析摘要+关键图表。约5分钟/篇。
 
-## Prompt
+## 提示词
 
 请对这篇文献进行「快速深度解析」，生成Word文档报告。按以下流程执行：
 

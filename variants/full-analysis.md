@@ -1,8 +1,8 @@
-# Full Analysis Variant
+# 完整版变体
 
-> Complete analysis of all sections. ~15 min per paper. Default mode.
+> 全部章节完整分析。约15分钟/篇。默认模式。
 
-## Prompt
+## 提示词
 
 请对这篇文献进行「完整逐段对照深度解析」，生成Word文档报告。严格按照以下流程执行：
 
